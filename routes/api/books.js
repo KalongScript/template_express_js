@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const books = require("../../services/books");
+const books = require("../../services/books.services");
 const middleware = require("../../services/middleware");
 
 // GET all books data
