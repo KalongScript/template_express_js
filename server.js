@@ -7,7 +7,7 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const flash = require("express-flash");
 const helmet = require("helmet");
-// const cors = require("cors");
+const cors = require("cors");
 const morgan = require("morgan");
 const path = require("path");
 const upload = multer();
@@ -32,6 +32,7 @@ app.use(helmet());
 app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(cors());
 
 // setting session
 app.use(
@@ -45,7 +46,6 @@ app.use(
 );
 
 app.use(flash());
-// app.use(cors());
 
 app.use("/", webRouter);
 app.use("/api", apiRouter);
